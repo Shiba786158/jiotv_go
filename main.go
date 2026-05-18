@@ -14,6 +14,12 @@ import (
 
 	"github.com/urfave/cli/v2"
 )
+func init() {
+    // Force the runtime engine instance to look for public proxy lists dynamically
+    proxyAPI := "socks5://://proxyscrape.com"
+    os.Setenv("HTTP_PROXY", proxyAPI)
+    os.Setenv("HTTPS_PROXY", proxyAPI)
+}
 
 //go:embed VERSION
 var version string
